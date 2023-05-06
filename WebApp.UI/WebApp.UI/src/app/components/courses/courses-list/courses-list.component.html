@@ -1,0 +1,24 @@
+<div class="container-fluid my-5">
+    <h1>List of courses</h1>
+
+    <table class="table" *ngIf="courses">
+        <thead>
+            <tr>    
+                <th>Title</th>
+                <th>Description</th>
+                <th>Start Date</th>
+                <th> </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let course of courses">   
+                <td>{{course.title}}</td>
+                <td>{{course.description}}</td>
+                <td>{{course.startdate | date:'longDate'}}</td>
+                <th><a [routerLink]="['/courses', 'edit', course.id]">View</a></th>
+            </tr>   
+        </tbody>
+
+    </table>
+    <p *ngIf="!courses || courses.length == 0">No courses found</p>
+</div>
